@@ -1,0 +1,29 @@
+{
+  "name": "skill-router",
+  "owner": {
+    "name": "Samarth Kombli",
+    "url": "https://github.com/samarthkombli-ops"
+  },
+  "metadata": {
+    "description": "skill-router: let your agent pick, vet and install the right skill for the job.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "skill-router",
+      "source": "./",
+      "description": "Picks the best installed skill for a task, or finds, vets and installs one from skills.sh. Instruction-only skills install automatically; code-bearing ones need your approval; unsafe ones are rejected.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Samarth Kombli"
+      },
+      "license": "MIT",
+      "category": "productivity",
+      "keywords": [
+        "skills",
+        "agent-skills",
+        "security"
+      ]
+    }
+  ]
+}

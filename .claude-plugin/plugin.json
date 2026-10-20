@@ -1,0 +1,19 @@
+{
+  "name": "skill-router",
+  "version": "1.0.0",
+  "description": "Picks the best installed skill for a task, or finds, vets and installs one from skills.sh. Instruction-only skills install automatically; code-bearing ones need your approval; unsafe ones are rejected.",
+  "author": {
+    "name": "Samarth Kombli",
+    "url": "https://github.com/samarthkombli-ops"
+  },
+  "homepage": "https://github.com/samarthkombli-ops/skill-router",
+  "repository": "https://github.com/samarthkombli-ops/skill-router",
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "agent-skills",
+    "skill-discovery",
+    "security",
+    "claude-code"
+  ]
+}

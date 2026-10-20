@@ -1,0 +1,30 @@
+name: Routing mistake
+description: The router picked, installed or skipped the wrong skill
+labels: [routing]
+body:
+  - type: textarea
+    id: task
+    attributes:
+      label: What you asked the agent to do
+    validations:
+      required: true
+  - type: textarea
+    id: picked
+    attributes:
+      label: What it picked or installed
+      description: Paste the routing line it printed, if any.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What it should have picked, and why
+    validations:
+      required: true
+  - type: input
+    id: agent
+    attributes:
+      label: Agent and model
+      placeholder: e.g. Claude Code 2.1 + Sonnet, Codex + GPT-5
+    validations:
+      required: true

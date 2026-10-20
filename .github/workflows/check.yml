@@ -1,0 +1,32 @@
+name: check
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: No hidden Unicode, valid SKILL.md frontmatter, skill stays instruction-only
+        run: |
+          python3 - <<'PY'
+          import pathlib, re, sys
+          bad = lambda o: 0x200b <= o <= 0x200f or 0x202a <= o <= 0x202e or 0x2060 <= o <= 0x2064 or o == 0xfeff
+          errs = []
+          for p in pathlib.Path('.').rglob('*'):
+              if p.is_file() and '.git' not in p.parts:
+                  for i, l in enumerate(p.read_text('utf-8', 'ignore').splitlines(), 1):
+                      if any(bad(ord(c)) for c in l):
+                          errs.append(f'{p}:{i}: hidden Unicode character')
+          for s in pathlib.Path('skills').rglob('SKILL.md'):
+              t = s.read_text('utf-8')
+              m = re.match(r'---\n(.*?)\n---', t, re.S)
+              if not m or not re.search(r'^name: *\S+', m.group(1), re.M) or not re.search(r'^description:', m.group(1), re.M):
+                  errs.append(f'{s}: missing frontmatter name/description')
+          allowed = {'.md', '.txt', '.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp', '.json', '.yaml', '.yml', '.csv', '.toml'}
+          for p in pathlib.Path('skills').rglob('*'):
+              if p.is_file() and p.suffix.lower() not in allowed:
+                  errs.append(f'{p}: not instruction-only ({p.suffix})')
+          print(*errs, sep='\n') if errs else print('OK')
+          sys.exit(1 if errs else 0)
+          PY

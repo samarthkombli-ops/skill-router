@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security issue privately
+    url: https://github.com/samarthkombli-ops/skill-router/security/advisories/new
+    about: A way to get an unsafe skill past vetting? Please report it privately, not as a public issue.
