@@ -1,0 +1,16 @@
+{
+  "description": "skill-router: one-line reminder on each prompt so the router runs before substantial tasks. Prints text only.",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "timeout": 5,
+            "command": "echo \"skill-router: if this message asks for any coding, website, design, video, image, writing, marketing, research, data or document work, invoke the skill-router skill before starting. Skip for pure questions and chit-chat.\""
+          }
+        ]
+      }
+    ]
+  }
+}

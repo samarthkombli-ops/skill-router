@@ -27,4 +27,5 @@ maintainers), in the `skills` CLI, or in the agents that run skills.
 ## Limits
 
 Vetting is performed by the agent reading files. It substantially reduces risk but is not a
-malware scanner. Code-bearing skills always require the user's explicit approval for this reason.
+malware scanner. For this reason, system-changing skills always require the user's explicit
+approval, and skills with bundled scripts do too unless the user opts in.

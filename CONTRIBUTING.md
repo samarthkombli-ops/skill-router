@@ -16,6 +16,17 @@ If a skill got past the vetting checklist that should not have, open an issue de
 pattern. **Do not paste live malicious payloads or real credentials**; describe the technique
 and give a defanged example.
 
+## Catalog changes
+
+Regenerate candidates with `python scripts/sweep.py --out sweep-report.md` (standard library
+only; it reads the public skills.sh search API and installs nothing). Use the report to propose
+additions; flagged COPY / ALIAS entries should point to the original publisher instead.
+
+`skills/skill-router/references/catalog.md` lets agents skip the full review of a skill when its
+repository is still at the listed commit. A pull request that adds or changes a reviewed commit
+must say that you read every instruction file and script of that skill at that commit, and list
+anything scanned rather than read. Maintainers re-check before merging.
+
 ## Pull requests
 
 - Keep the skill instruction-only. No scripts, no dependencies: users should be able to read

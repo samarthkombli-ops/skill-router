@@ -10,12 +10,19 @@
 `skill-router` is an [Agent Skill](https://agentskills.io) for Claude Code, Codex and other
 agents that support `SKILL.md`. At the start of a substantial task it:
 
-1. **Checks the skills you already have** and uses the best fit, at no extra cost.
-2. **Searches the open skills ecosystem** ([skills.sh](https://skills.sh) / GitHub) when nothing
-   installed fits well, and judges results on relevance rather than popularity alone.
-3. **Vets the best candidate** by downloading it to a temp folder and reading every file before
+1. **Equips the right companions for the type of work**: skills that make every task of that
+   kind better, like a minimal-diff skill for any coding, design-taste and Motion skills for any
+   website, or a multi-platform research skill for web research
+   (see the [catalog](skills/skill-router/references/catalog.md)).
+2. **Splits the task into facets** (a website: art direction, layout, motion, stack…) and checks
+   the skills you already have for each one.
+3. **Finds what's missing** on [skills.sh](https://skills.sh) / GitHub, preferring official
+   publishers and widely adopted specialists, judged on fit rather than popularity alone, and
+   takes useful side skills from the same pack.
+4. **Vets every candidate** by downloading it to a temp folder and reviewing every file before
    anything is installed.
-4. **Installs it and finishes your task with it**, then tells you in one line what it used.
+5. **Installs the essentials, offers the optional ones once**, then does your task with them and
+   tells you in one line what it used.
 
 ```mermaid
 flowchart TD
@@ -53,6 +60,27 @@ Drop `-g` to install for the current project only.
 
 Start a new session afterwards so the agent picks up the skill.
 
+### Why the plugin is recommended: reliable triggering
+
+In testing, agents given a plain request ("fix the failing tests") skipped the skill on tasks
+that looked small, even with a strong description. The plugin adds one **`UserPromptSubmit`
+hook that only prints a one-line reminder** to use the router for substantial work (see
+[`hooks/hooks.json`](hooks/hooks.json)); with it, agents invoked the router every time. It runs
+nothing else.
+
+Installed with `npx skills` instead? Add the same reminder to `~/.claude/settings.json` yourself:
+
+```json
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      { "hooks": [ { "type": "command", "timeout": 5,
+        "command": "echo \"skill-router: if this message asks for any coding, website, design, video, image, writing, marketing, research, data or document work, invoke the skill-router skill before starting. Skip for pure questions and chit-chat.\"" } ] }
+    ]
+  }
+}
+```
+
 ## Use
 
 Just work as normal. The router triggers on substantial or specialised tasks ("build a…",
@@ -71,10 +99,14 @@ Example of what you'll see:
 
 Skills run with your agent's full permissions, so the router treats every download as untrusted:
 
-- **Nothing is installed unread.** Every text file in the skill is read in full in a temp folder.
+- **Nothing is installed unreviewed.** Every instruction file and script is read in full in a temp
+  folder; large reference data is scanned for hidden instructions, URLs and commands.
 - **Instruction-only skills** (markdown only) that pass the checklist install automatically.
-- **Code-bearing skills** (scripts, binaries, package installs, MCP servers, hooks) always need
-  your explicit yes, with a summary of what the code does.
+- **Skills with bundled scripts** (standard-library helpers inside the skill folder, every line
+  read) need your yes, unless your `CLAUDE.md` / `AGENTS.md` opts in with
+  `skill-router: auto-install vetted bundled scripts`.
+- **System-changing skills** (package installs, binaries, MCP servers, hooks, config edits)
+  always need your explicit yes, with a summary of what the code does.
 - **Red flags mean rejection**: prompt-injection ("ignore previous instructions", "pre-authorized
   by the user"), reading credentials or `.env` files, sending data to hard-coded URLs, hidden
   zero-width or bidirectional Unicode characters, instructions to hide actions from you, and more.
@@ -84,16 +116,22 @@ Skills run with your agent's full permissions, so the router treats every downlo
 - **Your existing skills are never overwritten**, and your project's own rules (`CLAUDE.md`,
   `AGENTS.md`) always win over any skill.
 
-This skill is itself instruction-only: two markdown files, no code.
+This skill is itself instruction-only: three markdown files, no code.
 
 ## Limits
 
 - Vetting is done by the agent reading files. It raises the bar a lot, but it is not a malware
-  scanner. Review code-bearing skills yourself before saying yes.
+  scanner. Review skills with code yourself before saying yes or opting in.
 - Search uses `npx skills find`, which needs Node.js. Without it the agent falls back to
   browsing skills.sh or GitHub.
 - A skill installed mid-session may not show up in the agent's skill list until the next
   session. The router handles this by reading the new `SKILL.md` directly.
+
+## Keeping the catalog current
+
+The [catalog](skills/skill-router/references/catalog.md) is built from data, not hand-picked:
+`python scripts/sweep.py` queries skills.sh across 25 types of work and flags copies and
+lookalike repos. Outside the catalog, the router searches live.
 
 ## Security
 
@@ -102,7 +140,7 @@ Found a way to get an unsafe skill past vetting? Please report it privately; see
 
 ## Testing
 
-See [TESTING.md](TESTING.md) for the six scenarios it was tested on, including a booby-trapped
+See [TESTING.md](TESTING.md) for the scenarios it was tested on, including a booby-trapped
 skill that tries to steal SSH keys.
 
 ## Contributing

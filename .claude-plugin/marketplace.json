@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "skill-router: let your agent pick, vet and install the right skill for the job.",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "plugins": [
     {
       "name": "skill-router",
       "source": "./",
-      "description": "Picks the best installed skill for a task, or finds, vets and installs one from skills.sh. Instruction-only skills install automatically; code-bearing ones need your approval; unsafe ones are rejected.",
-      "version": "1.0.0",
+      "description": "Splits a task into facets, uses the best installed skill for each, and finds, vets and installs missing ones from skills.sh. Instruction-only skills install automatically; skills with code need your approval (or an opt-in); unsafe ones are rejected.",
+      "version": "1.1.0",
       "author": {
         "name": "Samarth Kombli"
       },
