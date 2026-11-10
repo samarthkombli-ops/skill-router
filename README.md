@@ -130,8 +130,12 @@ This skill is itself instruction-only: three markdown files, no code.
 ## Keeping the catalog current
 
 The [catalog](skills/skill-router/references/catalog.md) is built from data, not hand-picked:
-`python scripts/sweep.py` queries skills.sh across 25 types of work and flags copies and
-lookalike repos. Outside the catalog, the router searches live.
+`python scripts/census.py` reads every skill skills.sh lists, keeps the useful ones (active repo,
+real adoption, no failed security audit, no copies or lookalike repos), sorts them into 30 niches
+and ranks each niche by popularity ([niches.md](skills/skill-router/references/niches.md), full
+list in [data/skills-by-niche.csv](data/skills-by-niche.csv)). For each part of a task the router
+takes the top-ranked skill that fits, unless the curated catalog names an essential one. Outside
+both, it searches live.
 
 ## Security
 

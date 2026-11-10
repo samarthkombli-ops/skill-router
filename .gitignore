@@ -1,3 +1,4 @@
 sweep-report.md
 sweep.json
 __pycache__/
+.census/

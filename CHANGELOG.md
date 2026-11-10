@@ -5,6 +5,32 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2026-11-08
+
+### Added
+
+- Website companions from a fresh skills.sh sweep: `ui-ux-pro-max` (design data), Addy Osmani's
+  `accessibility`, `core-web-vitals` and `seo`, and `emil-design-eng`, plus a pointer to the
+  stack, copy, deployment and testing skills a professional site also needs.
+- Catalog skills whose repository has moved on are reviewed by reading only the diff since the
+  reviewed commit; when that diff is too large, the reviewed commit is installed and the newer
+  version is offered.
+
+### Added (census)
+
+- `references/niches.md` and `data/skills-by-niche.csv`: census of every skill skills.sh lists
+  (20,000 from 2,329 repositories, 10 November 2026). 13,939 pass the usefulness rules and are
+  sorted into 30 niches, each ranked by popularity (the square root of GitHub stars x installs).
+- Router Step 1b+: for each part of a task, install the niche's top-ranked skill that fits, unless
+  an installed skill already covers it or the catalog names an essential companion.
+- `scripts/census.py` replaces `scripts/sweep.py`.
+
+### Changed
+
+- Re-reviewed and re-pinned `ponytail` (96608e0), `motion` (1e42494) and `systematic-debugging`
+  (22f0b46). `design-taste-frontend` stays pinned at 63aba5f: v2.5.1 adds about 53K lines of
+  JavaScript and is offered for a full review instead.
+
 ## [1.1.0] - 2026-10-20
 
 ### Added
@@ -52,5 +78,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Claude Code plugin and marketplace manifests for `/plugin` installs.
 - CI check for hidden Unicode characters, `SKILL.md` frontmatter, and instruction-only contents.
 
+[1.2.0]: https://github.com/samarthkombli-ops/skill-router/releases/tag/v1.2.0
 [1.1.0]: https://github.com/samarthkombli-ops/skill-router/releases/tag/v1.1.0
 [1.0.0]: https://github.com/samarthkombli-ops/skill-router/releases/tag/v1.0.0

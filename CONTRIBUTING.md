@@ -18,9 +18,9 @@ and give a defanged example.
 
 ## Catalog changes
 
-Regenerate candidates with `python scripts/sweep.py --out sweep-report.md` (standard library
-only; it reads the public skills.sh search API and installs nothing). Use the report to propose
-additions; flagged COPY / ALIAS entries should point to the original publisher instead.
+Regenerate the niche rankings with `python scripts/census.py` (standard library plus the `gh`
+CLI; it reads the skills.sh sitemap and public skill pages, and installs nothing). It rewrites
+`references/niches.md` and `data/skills-by-niche.csv`; use them to propose catalog changes.
 
 `skills/skill-router/references/catalog.md` lets agents skip the full review of a skill when its
 repository is still at the listed commit. A pull request that adds or changes a reviewed commit

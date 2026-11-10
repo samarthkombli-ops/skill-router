@@ -33,7 +33,16 @@ find "<skill folder>" -type f | sort
 `reviewed <commit>` (not `md-only` or `scripts`, which are file inventories, not reviews) and
 `git rev-parse HEAD` starts with that commit hash, the full review has already been done: read the
 `SKILL.md`, run the mechanical checks in section 4, confirm the file inventory matches the tier
-in the catalog, and go to section 5. Any other commit means the full review below.
+in the catalog, and go to section 5.
+
+**Catalog skill that has moved on.** If HEAD is newer than the reviewed commit, review only what
+changed: read `git diff <commit> HEAD -- <skill folder>` in full (every added or changed line, every
+new file), then run section 4 on the whole folder. The unchanged files were already reviewed, so this
+counts as a full review of HEAD; install HEAD. If the diff is too large to read in full (roughly
+2,000+ changed lines), run `git checkout <commit>` (HEAD now matches, so use the fast path above)
+and install the reviewed version instead, and tell the user a newer version exists that needs a full review (offer it once, batched).
+
+Any skill without a `reviewed` tier gets the full review below.
 
 **Full review.** Read every instruction file (`.md`, `.txt`, `.mdc`) and every script or source file in full.
 Minified or encoded code, binary blobs you cannot explain, or files you cannot read are a reason

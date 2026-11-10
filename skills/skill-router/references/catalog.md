@@ -1,7 +1,7 @@
 # Catalog: high-value skills by type of work
 
 Built from a sweep of the skills.sh search API (about 5,400 unique results across 25 types of
-work, October 2026; regenerate with `scripts/sweep.py` in the skill-router repository), then
+work, October 2026, refreshed 8 November 2026; the full ranked census is `niches.md`), then
 filtered by hand for relevance and genuine publishers. It is a **starting map, not a whitelist and
 not the whole ecosystem**: for any gap it doesn't cover well, search live (`SKILL.md` Step 2).
 
@@ -30,9 +30,9 @@ side skills (`SKILL.md` Step 3).
 
 | Skill | Install as | Need | Tier | Why |
 |---|---|---|---|---|
-| ponytail | `dietrichgebert/ponytail@ponytail` | Essential | reviewed 09c434a | Smallest change that fully solves the task; fewer tokens, smaller diffs. Run it at **ultra** (`/ponytail ultra`) unless the user or standing rules choose another level. |
-| ponytail-review | `dietrichgebert/ponytail@ponytail-review` | When reviewing | md-only 09c434a | Review that removes unneeded code. |
-| ponytail-audit, ponytail-debt | `dietrichgebert/ponytail@…` | Optional | md-only 09c434a | Whole-codebase bloat and debt passes. |
+| ponytail | `dietrichgebert/ponytail@ponytail` | Essential | reviewed 96608e0 | Smallest change that fully solves the task; fewer tokens, smaller diffs. Run it at **ultra** (`/ponytail ultra`) unless the user or standing rules choose another level. |
+| ponytail-review | `dietrichgebert/ponytail@ponytail-review` | When reviewing | md-only 96608e0 | Review that removes unneeded code. |
+| ponytail-audit, ponytail-debt | `dietrichgebert/ponytail@…` | Optional | md-only 96608e0 | Whole-codebase bloat and debt passes. |
 | improve-codebase-architecture | `mattpocock/skills@improve-codebase-architecture` | When restructuring | md-only 5beb35b | Architecture improvement method. |
 | request-refactor-plan | `mattpocock/skills@request-refactor-plan` | When refactoring | md-only 5beb35b | Plan before large refactors. |
 
@@ -42,7 +42,7 @@ Packs: `mattpocock/skills` (38 skills, 35 md-only), `obra/superpowers` (15), `ad
 
 | Skill | Install as | Need | Tier | Why |
 |---|---|---|---|---|
-| systematic-debugging | `obra/superpowers@systematic-debugging` | Essential when debugging | reviewed bb92a77 (one shell helper running the project's tests) | Root cause before fixes. |
+| systematic-debugging | `obra/superpowers@systematic-debugging` | Essential when debugging | reviewed 22f0b46 (one shell helper running the project's tests) | Root cause before fixes. |
 | diagnosing-bugs | `mattpocock/skills@diagnosing-bugs` | Alternative to the above | scripts 5beb35b | Pick one of the two. |
 | debugging-and-error-recovery | `addyosmani/agent-skills@debugging-and-error-recovery` | Optional | md-only aeac41d | |
 
@@ -85,8 +85,11 @@ Packs: `mattpocock/skills` (38 skills, 35 md-only), `obra/superpowers` (15), `ad
 
 | Skill | Install as | Need | Tier | Why |
 |---|---|---|---|---|
-| design-taste-frontend ("Taste") | `leonxlnx/taste-skill@design-taste-frontend` | Essential | reviewed 63aba5f (bundled scripts: Node stdlib, local Chrome, public-domain image APIs) | Art direction from award-winning sites; anti-generic style; inspector loop. |
-| motion | `motiondivision/ai-kit@motion` | Essential when animating; always if the project uses Motion | reviewed 8dc4f7a (optional MCP / `npx motionscore` extras) | Official Motion best practices. |
+| design-taste-frontend ("Taste") | `leonxlnx/taste-skill@design-taste-frontend` | Essential | reviewed 63aba5f (bundled scripts: Node stdlib, local Chrome, public-domain image APIs). Install this commit; v2.5.1 (f6b7657, Nov 2026) is 39 MB with ~53K lines of new JS, so offer it as needing a full review | Art direction from award-winning sites; anti-generic style; inspector loop. |
+| ui-ux-pro-max | `nextlevelbuilder/ui-ux-pro-max-skill@ui-ux-pro-max` | When relevant (choosing palettes, font pairings, a design system) | scripts 4f2dbb6 (20 Python search scripts over CSV data) | Searchable design data: styles, palettes, font pairs, UX rules. Original publisher; skip its copies. |
+| accessibility, core-web-vitals, seo | `addyosmani/web-quality-skills@…` | Essential when the site ships to real users | md-only afa8da9 | Accessibility, performance and search basics from a well-known web practitioner. |
+| emil-design-eng | `emilkowalski/skills@emil-design-eng` | When relevant (interaction polish) | md-only 5206a95 | See Animation below. |
+| motion | `motiondivision/ai-kit@motion` | Essential when animating; always if the project uses Motion | reviewed 1e42494 (optional MCP / `npx motionscore` extras) | Official Motion best practices. |
 | frontend-design | `anthropics/skills@frontend-design` | Essential if no design skill is installed | md-only dbd4588 | |
 | web-design-guidelines | `vercel-labs/agent-skills@web-design-guidelines` | When relevant | md-only 063bee9 | Interface guidelines. |
 | impeccable | `pbakaus/impeccable@impeccable` | Optional | vet | Polish and critique. |
@@ -95,13 +98,17 @@ Packs: `mattpocock/skills` (38 skills, 35 md-only), `obra/superpowers` (15), `ad
 Pack: `leonxlnx/taste-skill` (also `high-end-visual-design`, `redesign-existing-projects`,
 `minimalist-ui`, `brandkit`): take `redesign-existing-projects` when restyling an existing site.
 
+A professional website is several types of work at once. Also check, by facet: the stack
+(Frontend / React / Next.js), page copy (`copywriting` in Marketing), deployment
+(`deploy-to-vercel` in DevOps), and browser testing (`webapp-testing` in Testing).
+
 ## Animation and motion design
 
 | Skill | Install as | Need | Tier | Why |
 |---|---|---|---|---|
-| motion | `motiondivision/ai-kit@motion` | Essential with Motion | reviewed 8dc4f7a | |
-| emil-design-eng, improve-animations, review-animations | `emilkowalski/skills@…` | Essential for UI animation work | md-only 2d22863 | Animation craft from a well-known design engineer. |
-| find-animation-opportunities | `emilkowalski/skills@find-animation-opportunities` | Optional | md-only 2d22863 | |
+| motion | `motiondivision/ai-kit@motion` | Essential with Motion | reviewed 1e42494 | |
+| emil-design-eng, improve-animations, review-animations | `emilkowalski/skills@…` | Essential for UI animation work | md-only 5206a95 | Animation craft from a well-known design engineer. |
+| find-animation-opportunities | `emilkowalski/skills@find-animation-opportunities` | Optional | md-only 5206a95 | |
 
 ## Mobile apps
 
@@ -110,7 +117,7 @@ Pack: `leonxlnx/taste-skill` (also `high-end-visual-design`, `redesign-existing-
 | expo-native-ui, expo-animation, expo-router | `expo/skills@…` | Essential for Expo / React Native | reviewed 7ddc1f5 (optional extra: a feedback command; don't run it) | Official Expo. `expo-animation` supersedes `emilkowalski/skills@animate-expo`. |
 | expo-dev-client, expo-tailwind-setup, expo-data-fetching, expo-ui | `expo/skills@…` | When relevant | md-only 7ddc1f5 | |
 | vercel-react-native-skills | `vercel-labs/agent-skills@vercel-react-native-skills` | When React Native | reviewed 063bee9 | For animation, follow `expo-animation` where they differ. |
-| animate-expo, mobile-native, write-swift | `emilkowalski/skills@…` | When relevant | md-only 2d22863 | |
+| animate-expo, mobile-native, write-swift | `emilkowalski/skills@…` | When relevant | md-only 5206a95 | |
 | design-mobile-apps | `designed-by-ai/skills@design-mobile-apps` | Optional | vet | |
 
 ## Databases and backend

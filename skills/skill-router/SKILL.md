@@ -73,6 +73,14 @@ A website: visual design and art direction, UI system and layout, motion, the st
 bug fix: the language/framework, debugging. Add any facet the standing rules require (e.g.
 "every website uses Motion").
 
+**1b+. Niche leaders.** For each facet, find its niche in `references/niches.md` (search for the
+`## <niche>` heading and read only that section; it ranks the useful skills in that niche by
+popularity: GitHub stars and installs together). The facet's **leader is the highest-ranked skill whose description fits the facet**;
+skip rows that don't fit. Fit means it names this facet's specific task, tool or stack; a generic
+row wins only when no specific row fits. The leader is what you install for that facet unless an
+installed skill already rates **strong** below, or the catalog names an essential companion for it
+(the catalog wins). The tables carry no safety tier: the leader is still vetted in Step 4.
+
 **1c. Match installed skills.** For each companion and facet, check the skill list in your
 context. A skill counts as installed if its `name` matches, including plugin namespaces
 (`anthropic-skills:ponytail` is `ponytail`). Rate each facet:
@@ -97,8 +105,8 @@ Notes:
 
 ## Step 2 — Search for the gaps
 
-For catalog entries, you already know what to fetch; confirm it still exists with
-`npx -y skills find "<name>"`. For other gaps, run 1–3 searches per gap with different phrasings
+For catalog entries and niche leaders, you already know what to fetch; confirm it still exists with
+`npx -y skills find "<name>"`. Search live only for gaps with no fitting row: run 1–3 searches per gap with different phrasings
 (tool or library name, task verb, domain). For a specific tool, also search the vendor's GitHub
 organisation, since vendors often publish an official skill:
 
@@ -223,4 +231,5 @@ for the work, not the skills.
 - Never uninstall or overwrite a skill the user already has. If a name collides, stop and tell
   the user.
 - Bounded effort: at most 3 searches and 3 vetted candidates per gap, and at most 6 skills
-  installed per task (a pack's siblings count as one). Ask before going further.
+  installed per task (a pack's siblings count as one). Install in need order (essential first);
+  put anything past the sixth in the Step 4b message instead of installing it.
