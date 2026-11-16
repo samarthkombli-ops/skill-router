@@ -25,6 +25,17 @@ never the user's real skills folder.
 | 17 | Auto-trigger: plain "fix the failing tests", no mention of skills, Opus and Sonnet, description only | Router runs by itself | **Failed** 4/4: agents skipped the skill on a task that looked small, even with an "ALWAYS use FIRST" description |
 | 18 | Same, with the plugin's one-line `UserPromptSubmit` reminder | Router runs, ponytail loaded at ultra | Opus: pass. Sonnet: invoked the router but didn't load ponytail; fixed by an "always-on companions" table ("installed is not the same as used"); re-run twice: both pass |
 
+**Re-run, 16 November 2026 (v1.2.0, fresh Sonnet agents; Opus as well for 17 and 18).** Tests 1–14
+passed again. Test 15 installed a low-adoption prompt-writing skill instead of only asking for a
+free image tool. Test 16 chose and vetted the official Stripe skill but its install step was
+blocked by an outage in the test environment. Test 17 failed again on both models. Test 18 split:
+Opus invoked the router and loaded ponytail; Sonnet saw the reminder and skipped it. Five runs hit
+a failing `git diff` against the pinned commit in a shallow clone, and a hand-built skill using
+Unicode tag characters, bidirectional isolates, a `[//]: #` comment and a `hidden` element passed
+all mechanical checks. 1.2.1 fixes the clone step and makes the checks catch the first three; the
+`hidden` element is left to the reader, because a grep for it flagged six ordinary code samples in
+known-good skills.
+
 Testers' reports from runs 1–5 drove a revision: dependency handling, reading a candidate's
 instructions before choosing, always-on skills, silent skips, the installer's `skills-lock.json`,
 an HTML-comment check, and project-level removal.

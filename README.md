@@ -65,8 +65,9 @@ Start a new session afterwards so the agent picks up the skill.
 In testing, agents given a plain request ("fix the failing tests") skipped the skill on tasks
 that looked small, even with a strong description. The plugin adds one **`UserPromptSubmit`
 hook that only prints a one-line reminder** to use the router for substantial work (see
-[`hooks/hooks.json`](hooks/hooks.json)); with it, agents invoked the router every time. It runs
-nothing else.
+[`hooks/hooks.json`](hooks/hooks.json)); with it, agents invoked the router far more often, though
+not every time (in a November 2026 re-test Opus did and Sonnet still skipped a two-line fix). It
+runs nothing else.
 
 Installed with `npx skills` instead? Add the same reminder to `~/.claude/settings.json` yourself:
 
@@ -116,7 +117,7 @@ Skills run with your agent's full permissions, so the router treats every downlo
 - **Your existing skills are never overwritten**, and your project's own rules (`CLAUDE.md`,
   `AGENTS.md`) always win over any skill.
 
-This skill is itself instruction-only: three markdown files, no code.
+This skill is itself instruction-only: four markdown files, no code.
 
 ## Limits
 

@@ -11,7 +11,7 @@ jobs:
         run: |
           python3 - <<'PY'
           import pathlib, re, sys
-          bad = lambda o: 0x200b <= o <= 0x200f or 0x202a <= o <= 0x202e or 0x2060 <= o <= 0x2064 or o == 0xfeff
+          bad = lambda o: 0x200b <= o <= 0x200f or 0x202a <= o <= 0x202e or 0x2060 <= o <= 0x2069 or 0xe0000 <= o <= 0xe007f or o in (0xad, 0x180e, 0xfeff)
           errs = []
           for p in pathlib.Path('.').rglob('*'):
               if p.is_file() and '.git' not in p.parts:

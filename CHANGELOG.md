@@ -5,6 +5,19 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased] (1.2.1)
+
+### Fixed
+
+- Reviewing a catalog skill that has moved on: the shallow clone did not contain the reviewed
+  commit, so the documented `git diff` and `git checkout` failed. `vetting.md` now unshallows first.
+- Hidden-text checks (in `vetting.md` and the repository's own CI) now also catch Unicode tag
+  characters, bidirectional isolates and soft hyphens; `vetting.md` also greps for Markdown
+  link-definition comments and names `hidden` / `display:none` HTML as a red flag to read for
+  (not grepped: it matches ordinary code samples).
+- README: the skill has four markdown files, and the hook does not make agents invoke the router
+  every time. TESTING.md records the 16 November 2026 re-run.
+
 ## [1.2.0] - 2026-11-08
 
 ### Added
