@@ -1,7 +1,7 @@
 # Catalog: high-value skills by type of work
 
 Built from a sweep of the skills.sh search API (about 5,400 unique results across 25 types of
-work, October 2026, refreshed 8 November 2026; the full ranked census is `niches.md`), then
+work, October 2026, refreshed 8 November 2026, reviewed pins re-checked 16 November 2026; the full ranked census is `niches.md`), then
 filtered by hand for relevance and genuine publishers. It is a **starting map, not a whitelist and
 not the whole ecosystem**: for any gap it doesn't cover well, search live (`SKILL.md` Step 2).
 
@@ -96,7 +96,8 @@ Packs: `mattpocock/skills` (38 skills, 35 md-only), `obra/superpowers` (15), `ad
 | ui-taste | `uizze.sh@ui-taste` | Optional | vet | |
 
 Pack: `leonxlnx/taste-skill` (also `high-end-visual-design`, `redesign-existing-projects`,
-`minimalist-ui`, `brandkit`): take `redesign-existing-projects` when restyling an existing site.
+`minimalist-ui`, `brandkit`). The publisher has retired `redesign-existing-projects`: redesigns are
+part of `design-taste-frontend` now.
 
 A professional website is several types of work at once. Also check, by facet: the stack
 (Frontend / React / Next.js), page copy (`copywriting` in Marketing), deployment
@@ -114,9 +115,9 @@ A professional website is several types of work at once. Also check, by facet: t
 
 | Skill | Install as | Need | Tier | Why |
 |---|---|---|---|---|
-| expo-native-ui, expo-animation, expo-router | `expo/skills@…` | Essential for Expo / React Native | reviewed 7ddc1f5 (optional extra: a feedback command; don't run it) | Official Expo. `expo-animation` supersedes `emilkowalski/skills@animate-expo`. |
+| expo-native-ui, expo-animation, expo-router | `expo/skills@…` | Essential for Expo / React Native | reviewed dfdebcc (optional extra: a feedback command that sends project details to Expo; run only with the user's yes) | Official Expo. `expo-animation` supersedes `emilkowalski/skills@animate-expo`. |
 | expo-dev-client, expo-tailwind-setup, expo-data-fetching, expo-ui | `expo/skills@…` | When relevant | md-only 7ddc1f5 | |
-| vercel-react-native-skills | `vercel-labs/agent-skills@vercel-react-native-skills` | When React Native | reviewed 063bee9 | For animation, follow `expo-animation` where they differ. |
+| vercel-react-native-skills | `vercel-labs/agent-skills@vercel-react-native-skills` | When React Native | reviewed 1a2c79d | For animation, follow `expo-animation` where they differ. |
 | animate-expo, mobile-native, write-swift | `emilkowalski/skills@…` | When relevant | md-only 5206a95 | |
 | design-mobile-apps | `designed-by-ai/skills@design-mobile-apps` | Optional | vet | |
 
@@ -135,7 +136,7 @@ A professional website is several types of work at once. Also check, by facet: t
 
 | Skill | Install as | Need | Tier | Why |
 |---|---|---|---|---|
-| stripe-best-practices | `stripe/ai@stripe-best-practices` | Essential with Stripe | reviewed 579b067 (optional extra: Stripe CLI) | Official: Checkout, subscriptions, Customer Portal, webhooks, keys. |
+| stripe-best-practices | `stripe/ai@stripe-best-practices` | Essential with Stripe | reviewed 9d6c33b (optional extra: installing the Stripe CLI) | Official: Checkout, subscriptions, Customer Portal, webhooks, keys. |
 
 ## Cloud, DevOps, security
 
@@ -151,7 +152,7 @@ A professional website is several types of work at once. Also check, by facet: t
 
 | Skill | Install as | Need | Tier | Why |
 |---|---|---|---|---|
-| remotion-create, -render, -studio, -interactivity | `remotion-dev/skills@…` | Essential for Remotion | reviewed 039e8a2 | Official Remotion. |
+| remotion-create, -render, -studio, -interactivity | `remotion-dev/skills@…` | Essential for Remotion | reviewed 7e541aa | Official Remotion. `remotion-create` points to `remotion-markup` (below) for layout, so offer that with it. |
 | remotion-markup | `remotion-dev/skills@remotion-markup` | When animating Remotion scenes | system-changing at 039e8a2 (maps script needs `@turf/turf`) | Ask. |
 | hyperframes, general-video, product-launch-video, faceless-explainer, pr-to-video, talking-head-recut | `heygen-com/hyperframes@…` | Alternative engine to Remotion (HTML-based) | cli (`npx hyperframes`, usage quotas) | HeyGen's official pack; ask, check cost. |
 | ffmpeg skills | search | When cutting, encoding, captioning | vet | |
@@ -178,14 +179,14 @@ A professional website is several types of work at once. Also check, by facet: t
 Pack: `coreyhaines31/marketingskills` (52 skills, 51 md-only at e85f3cb). Essential picks by task:
 `copywriting`, `seo-audit`, `programmatic-seo`, `content-strategy`, `site-architecture`,
 `ad-creative`, `cold-email`, `customer-research`, `competitor-profiling`. `copywriting`, `cold-email`
-and `seo-audit` are reviewed e85f3cb; the rest are md-only e85f3cb except `conversion-tracking`
+and `seo-audit` are reviewed 1f83744; the rest are md-only e85f3cb except `conversion-tracking`
 (scripts).
 
 ## Research and web data
 
 | Skill | Install as | Need | Tier | Why |
 |---|---|---|---|---|
-| agent-reach | `panniantong/agent-reach@agent-reach` | Essential for multi-platform research (Reddit, X, YouTube…) | cli (`agent-reach` via pipx) | Ask. |
+| agent-reach | `panniantong/agent-reach@agent-reach` | Essential for multi-platform research (Reddit, X, YouTube…) | cli (`agent-reach` via pipx) | Ask, and tell the user its setup installs a browser and can copy their site logins from Chrome. |
 | research | `mattpocock/skills@research` | For research tasks | md-only 5beb35b | |
 | agent-browser | `vercel-labs/agent-browser@agent-browser` | When a scripted browser is needed | cli | |
 | playwright-cli | `microsoft/playwright-cli@playwright-cli` | Browser automation | cli | |

@@ -32,9 +32,14 @@ blocked by an outage in the test environment. Test 17 failed again on both model
 Opus invoked the router and loaded ponytail; Sonnet saw the reminder and skipped it. Five runs hit
 a failing `git diff` against the pinned commit in a shallow clone, and a hand-built skill using
 Unicode tag characters, bidirectional isolates, a `[//]: #` comment and a `hidden` element passed
-all mechanical checks. 1.2.1 fixes the clone step and makes the checks catch the first three; the
-`hidden` element is left to the reader, because a grep for it flagged six ordinary code samples in
-known-good skills.
+all mechanical checks. 1.2.1 fixes the clone step and makes the checks catch all four.
+
+**After the 1.2.1 changes (same day).** Test 18 with the new reminder text: 4 of 4 agents (3 Sonnet,
+1 Opus) invoked the router on the two-line fix; 3 of 4 then loaded ponytail at ultra, and one
+Sonnet run judged the fix too small to load it. Test 15: installed nothing, said the images cannot
+be made on a zero budget and asked the user to choose a free route. Test 16: installed the official
+Stripe skill through the catalog fast path. Tests 17 and 18 ran in sub-agents with the reminder
+pasted into the prompt, so treat the counts as indicative.
 
 Testers' reports from runs 1–5 drove a revision: dependency handling, reading a candidate's
 instructions before choosing, always-on skills, silent skips, the installer's `skills-lock.json`,

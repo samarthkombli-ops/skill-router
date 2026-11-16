@@ -134,8 +134,9 @@ Mechanical checks (any output means: read those lines closely):
 LC_ALL=C.UTF-8 grep -rnP '[\x{00AD}\x{180E}\x{200B}-\x{200F}\x{202A}-\x{202E}\x{2060}-\x{2069}\x{FEFF}\x{E0000}-\x{E007F}]' "<skill folder>"
 # HTML comments (invisible when rendered, visible to the agent)
 grep -rn '<!--' "<skill folder>"
-# Markdown link-definition comments, e.g. [//]: # (text), which also render as nothing
-grep -rnE --include='*.md' --include='*.mdc' --include='*.txt' '^\[[^]]*\]: *<?#' "<skill folder>"
+# Markdown link-definition comments, e.g. [//]: # (text), and HTML elements hidden by attribute or
+# inline style; both render as nothing (lower-case HTML tags only, so JSX components don't match)
+grep -rnE --include='*.md' --include='*.mdc' --include='*.txt' '^\[[^]]*\]: *<?#|<[a-z][a-z0-9]*[^>]*[" ]hidden[ >=/]|<[a-z][a-z0-9]*[^>]*style="[^"]*(display: *none|visibility: *hidden|font-size: *0)' "<skill folder>"
 ```
 
 Without GNU grep (e.g. plain PowerShell), the hidden-Unicode check in Python:

@@ -5,7 +5,7 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased] (1.2.1)
+## [1.2.1] - 2026-11-16
 
 ### Fixed
 
@@ -13,10 +13,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   commit, so the documented `git diff` and `git checkout` failed. `vetting.md` now unshallows first.
 - Hidden-text checks (in `vetting.md` and the repository's own CI) now also catch Unicode tag
   characters, bidirectional isolates and soft hyphens; `vetting.md` also greps for Markdown
-  link-definition comments and names `hidden` / `display:none` HTML as a red flag to read for
-  (not grepped: it matches ordinary code samples).
+  link-definition comments and for HTML elements hidden by attribute or inline style.
 - README: the skill has four markdown files, and the hook does not make agents invoke the router
   every time. TESTING.md records the 16 November 2026 re-run.
+
+### Changed
+
+- Stronger reminder text in the hook (a small fix is not a reason to skip the router).
+- Prose files (docs, changelogs, copy) are not code changes; a skill that cannot produce the
+  task's main deliverable under the user's rules is not installed; when a candidate's raw
+  `SKILL.md` path is unknown, it is read from a temporary clone.
+- Catalog: Expo, Vercel React Native, Stripe, Remotion and three marketing skills re-reviewed at
+  their current commits; the retired `redesign-existing-projects` is no longer recommended;
+  `agent-reach` carries a note about copying Chrome logins.
+- `niches.md` says its keyword niches are about three-quarters accurate.
 
 ## [1.2.0] - 2026-11-08
 

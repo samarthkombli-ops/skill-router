@@ -65,9 +65,9 @@ Start a new session afterwards so the agent picks up the skill.
 In testing, agents given a plain request ("fix the failing tests") skipped the skill on tasks
 that looked small, even with a strong description. The plugin adds one **`UserPromptSubmit`
 hook that only prints a one-line reminder** to use the router for substantial work (see
-[`hooks/hooks.json`](hooks/hooks.json)); with it, agents invoked the router far more often, though
-not every time (in a November 2026 re-test Opus did and Sonnet still skipped a two-line fix). It
-runs nothing else.
+[`hooks/hooks.json`](hooks/hooks.json)); with it, agents invoked the router far more often. In the
+November 2026 re-test (v1.2.1 wording, a two-line fix) 4 of 4 agents invoked the router and 3 of 4
+went on to load the coding companion; without the hook, 0 of 2 did. It runs nothing else.
 
 Installed with `npx skills` instead? Add the same reminder to `~/.claude/settings.json` yourself:
 
@@ -76,7 +76,7 @@ Installed with `npx skills` instead? Add the same reminder to `~/.claude/setting
   "hooks": {
     "UserPromptSubmit": [
       { "hooks": [ { "type": "command", "timeout": 5,
-        "command": "echo \"skill-router: if this message asks for any coding, website, design, video, image, writing, marketing, research, data or document work, invoke the skill-router skill before starting. Skip for pure questions and chit-chat.\"" } ] }
+        "command": "echo \"skill-router: REQUIRED first step. If this message asks for any code change (even a one- or two-line fix), or any website, design, video, image, writing, marketing, research, data or document work, invoke the skill-router skill before doing anything else. A task looking small is not a reason to skip it. Skip only for pure questions and chit-chat.\"" } ] }
     ]
   }
 }

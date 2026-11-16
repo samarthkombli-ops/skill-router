@@ -7,7 +7,7 @@
           {
             "type": "command",
             "timeout": 5,
-            "command": "echo \"skill-router: if this message asks for any coding, website, design, video, image, writing, marketing, research, data or document work, invoke the skill-router skill before starting. Skip for pure questions and chit-chat.\""
+            "command": "echo \"skill-router: REQUIRED first step. If this message asks for any code change (even a one- or two-line fix), or any website, design, video, image, writing, marketing, research, data or document work, invoke the skill-router skill before doing anything else. A task looking small is not a reason to skip it. Skip only for pure questions and chit-chat.\""
           }
         ]
       }

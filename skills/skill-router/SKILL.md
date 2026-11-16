@@ -53,6 +53,9 @@ chit-chat, and one-line edits to non-code text.
 calls when the coding companions are already installed, and a "two-line fix" is exactly where a
 minimal-diff skill saves rework.
 
+Writing or editing prose files (docs, a changelog, page copy, notes) is **not** a code change: it
+gets no coding companion. Route it by its own type of work (documents, writing, marketing).
+
 **Route** when any of these hold: the task is multi-step; it is coding, design, research or
 document work of any real size; it targets a specific file format, framework, platform or
 standard; or the user will clearly repeat it. When in doubt, route: Step 1 is cheap.
@@ -148,13 +151,19 @@ Shortlist 1–3 relevant results per gap and score them:
 
 **Fit beats adoption.** Confirm fit from the skill's `SKILL.md` body, read from its skills.sh page
 or the raw file (`https://raw.githubusercontent.com/<owner>/<repo>/HEAD/<path>/SKILL.md`), not
-from its name. Reading to shortlist is not vetting; clone only what you pick.
+from its name. If the raw path returns 404 (skills often sit in a subfolder), clone the repository
+to a temporary folder and read it there; a truncated excerpt is not enough to choose on. Reading to
+shortlist is not vetting.
 
 **Packs and side skills.** Many skills come in packs (one repository, several skills, e.g. a main
 skill plus review/audit variants). When you install from a pack, also take the siblings that are
 essential or relevant for this type of work; put the rest on the offer list.
 
 If nothing beats the fallback for a gap, use the fallback (or no skill) and say so.
+
+**A skill must be able to deliver.** Do not install a skill that cannot produce the task's main
+deliverable under the standing rules (e.g. a prompt-writing skill when the user asked for generated
+images and paid tools are barred). Say what is missing and ask the user instead.
 
 ## Step 4 — Vet, then install
 
